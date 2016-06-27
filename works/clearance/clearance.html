@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<link href="text.css" rel="stylesheet" />
+</head>
+
+<body>
+<div id="wrap">
+	<p id="game"><input type="button" value="开始游戏"/><strong class="active">初级</strong><strong>中级</strong><strong>高级</strong></p>
+    <div id="box"></div>
+    <div id="side"><img class="img1" src="img/timer.png"><span class="span1"></span><span class="span2"></span><img class="img2" src="img/bomn.png"></div>
+    <div id="wenzi"><strong></strong><span>关闭</span></div>
+</div>
+<div class="cont">
+	 <p class="tips">
+    	1.点击“开始游戏”按钮进入游戏，同时游戏开始计时。<br>
+		2.有“初级”“中级”“高级”三关。分别对应不同的雷数，10，40,99个雷。<br>
+		3.点击鼠标右键，插红旗找地雷，当找全下方提示的雷数，闯关成功，同时点击”再玩一次“，即可重新开始，还可以选择不同关卡。<br>
+		4.随机数布雷。用Json存下每个格子无雷为0.有雷为1的数组，找到每个方块与坐标的对应关系，<br>
+		5.运用九宫格的方法找到每个单元格四周的雷数，并标记到单元格上。<br>
+		6.主要程序思想运用递归的方法揭开空白区域。<br>
+    </p>
+</div>
+</body>
+</html>
+<script src="YJJ.js"></script>
+<script>
+var oWrap = document.getElementById('wrap');
+var oGame = document.getElementById('game');
+var aStrong = oGame.getElementsByTagName('strong');
+var oBox = document.getElementById('box');
+var oInp= document.getElementsByTagName('input')[0];
+var oSide = document.getElementById('side');
+var aDiv = oBox.getElementsByTagName('div');
+var ap = oBox.getElementsByTagName('p');
+var aSpan= oBox.getElementsByTagName('span');
+var aSpan2= oSide.getElementsByTagName('span');
+var oWenzi= document.getElementById('wenzi');
+var oWSp= oWenzi.getElementsByTagName('span')[0];
+var oStr= oWenzi.getElementsByTagName('strong')[0];
+var coordinate={};//方块坐标
+var count = 0;   //变化的炸弹数目
+var winnum=0;
+var bombNum=10;  //布局中的炸弹总数
+var boxNum=81;   //方块总数
+var box_x=9;   //横坐标
+var box_y=9;   //纵坐标
+var timer=null;
+var onoff=true;
+var timerNum=0;
+
+aStrong[0].onclick=function (){
+	var that=this;
+	qing(that);
+	oWrap.style.width=342+'px';
+	oBox.style.height=342+'px';
+	bombNum=10;
+	boxNum=81;
+	 box_x=9;
+	 box_y=9;
+	 int ();
+	}; 
+aStrong[1].onclick=function (){
+	var that=this;
+	qing(that);
+	oWrap.style.width=608+'px';
+	oBox.style.height=608+'px';
+	bombNum=40;
+	boxNum=256;
+	 box_x=16;
+	 box_y=16;
+	 int ();
+	}; 
+aStrong[2].onclick=function (){
+	var that=this;
+	qing(that);
+	oWrap.style.width=1140+'px';
+	oBox.style.height=608+'px';
+	bombNum=99;
+	boxNum=480;
+	 box_x=30;
+	 box_y=16;
+	 int ();
+	}; 
+oInp.onclick=int;
+function int (){/* 初始化 */
+	 timerNum=0;
+	buju ();
+	winnum=0;
+	count=0;
+	onoff=false;
+	bulei();
+	Num();
+	action();
+	oInp.value="游戏进行中";
+	clearInterval(timer)
+	timer=setInterval(function (){
+	aSpan2[0].innerHTML=timerNum;
+			timerNum++;
+		},1000)	
+};
+function qing(n){  /* 选中当前状态 */
+	for(var i=0;i<aStrong.length;i++){
+		aStrong[i].className='';		
+	}
+	n.className='active';
+}	
+function buju (){
+	var str = '';
+	for(var i=0; i<boxNum; i++){
+		str += "<div><p class="+'titleP'+"></p><span></span></div>";/*p放整个蓝色背景遮方块 span里面放数字*/
+	}
+	oBox.innerHTML = str;
+	aSpan2[0].innerHTML=timerNum;
+	aSpan2[1].innerHTML=bombNum;
+	for(var i=0;i<box_y;i++){   //把方块坐标存入 json;
+		//data.push([]);  //数组的这种写法每次都是往里面push,数组会越来越多。
+		coordinate[i] = [];//每次都重置为空。
+		for(var j=0;j<box_x;j++){
+		//data[i].push(0);
+		coordinate[i].push(0)
+		}
+	}
+	//console.log(coordinate)	
+}
+buju();
+
+function bulei(){
+	while( count < bombNum ){  
+		
+		var x = Math.floor( Math.random()*box_x );
+		var y = Math.floor( Math.random()*box_y );
+		if( !coordinate[y][x] ){		
+			coordinate[y][x] = 1;     //有雷为1，没雷为0；
+			count ++;
+			aDiv[y*box_x+x].className = 'bomb'; //把绘制好的地雷显示出来
+		}
+		
+	}
+}
+function Num(){  //显示每个方块四周地雷的数目 
+	for(var i=0;i<box_y;i++){ // 纵坐标=20
+		
+		for(var j=0;j<box_x;j++){ //横坐标=25
+				if(!coordinate[i][j]){//不是雷的才能 去查看四周
+				var num=0;
+			if(i>0&&j>0&&coordinate[i-1][j-1])num++;
+			if(i>0&&coordinate[i-1][j])num++;
+			if(i>0&&j<box_x-1&&coordinate[i-1][j+1])num++;
+			if(j>0&&coordinate[i][j-1])num++;
+			if(j<box_x-1&&coordinate[i][j+1])num++;
+			if(i<box_y-1&&j>0&&coordinate[i+1][j-1])num++;
+			if(i<box_y-1&&coordinate[i+1][j])num++;
+			if(i<box_y-1&&j<box_x-1&&coordinate[i+1][j+1])num++;
+			if(num){
+				aSpan[i*box_x+j].innerHTML=num;//不为0的显示出来
+				addClass(aSpan[i*box_x+j],'title'+num)/*添加class 显示不同的颜色 */
+			}
+			}
+		}
+	
+	}
+	
+}
+function rightit(event,n){ //添加鼠标右击事件
+    if (event.button==2)
+    {	
+		if(ap[n].className!='flag'){//标记过的的不能在标记
+			addClass(ap[n],'flag')
+			count--;
+		}
+	  	aSpan2[1].innerHTML=count; 
+		if(aDiv[n].className=='bomb'&&aDiv[n].sign!=1)
+		{	winnum++;
+			aDiv[n].sign=1;//点过的做标记，省的在一个地方点多次，都计算
+		}
+		if(winnum==bombNum){
+			for(var j=0;j<ap.length;j++)
+			{ removeClass(ap[j],'p1')/* 掀开所有的空格*/
+			  ap[j].className="";
+			}
+			clearInterval(timer)
+			onoff=true;
+			oInp.value="再玩一次";
+			//alert('恭喜你赢了');
+			
+			var str1="恭喜你！闯关成功";
+				tanchaung(str1);
+		}
+	}
+ 
+}
+function action (){
+	for(var i=0; i<aDiv.length; i++ ){
+		aDiv[i].index=i;
+		aSpan[i].index=i;
+		
+		aDiv[i].onmousedown=function(ev){
+			var ev = ev || event;
+			rightit(ev,this.index); //右击事件
+			
+		} 
+		 
+		if(onoff){return;}//只有input被点击之后才能启动 并且 一旦结束 就不能在点击了
+		aDiv[i].onclick=function (){  //左击事件 显示方块  或者 地雷（gameover全部显示）
+	
+				if (this.className=='bomb')
+				{
+					for(var j=0;j<ap.length;j++)
+					{ 	removeClass(ap[j],'p1')/* 掀开所有的空格*/
+						ap[j].className="";
+					}
+					clearInterval(timer)
+					onoff=true;
+					oInp.value="再玩一次";
+					//alert('炸弹');
+					var str1="炸弹！真遗憾没能过关";
+					tanchaung(str1);
+				}else if(this.className=='' && aSpan[this.index].innerHTML==''){
+						/* 当前点的格子没有雷 并且是空白格子 就递归掀开四种的空白知道遇到有数字或者雷的停止*/
+					show(parseInt(this.index/box_x),parseInt(this.index%box_x))
+				}else if(aSpan[this.index].innerHTML!=''){
+					 /* 如果当前格子是数字只掀开当前*/
+					 ap[this.index].style.background='none';
+				}
+		}
+	
+	}
+}
+
+
+function show (i,j){  //递归思想揭开没有雷的方块，已经走过的给个标记 否则会进入死循环，
+	
+	for(var p=i-1;p<i+2;p++){ /* 每次都是9个  连当前的也看*/
+      	for(var q=j-1;q<j+2;q++){ 
+		//console.log(p,q)
+	  		if(p>=0 && q>=0 && p<box_y && q<box_x && aDiv[p*box_x+q].className=='' && aDiv[p*box_x+q].abc!=1){/* 限制九宫格坐标范围 没有雷的位置 没有查看过的位置  （空白旁边的有数字的位置也会掀开） */
+				 ap[p*box_x+q].style.background='none';/* 掀开*/
+				 aDiv[p*box_x+q].abc=1;/* 掀开的做标记 添加属性abc为1*/
+				 if(aSpan[p*box_x+q].innerHTML=='') {show(p,q);} /* 如果为空白 递归*/
+			}
+	   }
+	}
+}
+document.oncontextmenu = function(){
+ return false;	//取消鼠标右键的默认菜单
+};
+
+function tanchaung (str){
+	 oStr.innerHTML=str;
+	oWenzi.style.display="block";
+	var iLeft = ( view().w - oWenzi.offsetWidth ) / 2;
+	var iTop = ( view().h - oWenzi.offsetHeight ) / 2;
+	oWenzi.style.left = iLeft + 'px';
+	oWenzi.style.top = iTop + 'px';
+	
+	
+};
+oWSp.onclick=function (){
+	oWenzi.style.display="none";
+}
+function offsetH(){
+	return document.body.offsetHeight;	
+}
+function scrollH(){
+	return document.body.scrollHeight;	
+}
+function view(){
+	return {
+		w : document.documentElement.clientWidth,
+		h : document.documentElement.clientHeight
+	};	
+}
+</script>

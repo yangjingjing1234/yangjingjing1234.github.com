@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+html,body{
+	height: 100%;
+}
+body, div, dl, dt, dd, pre, form, fieldset, input, table, th, td, embed, object, p {padding: 0;margin: 0;font-family:"微软雅黑"}
+a{text-decoration:none}
+.clear{zoom:1;}
+p{color:#FF3}
+.clear:after{content:"";display:block;clear:both;}
+#skelet {width: 100%;overflow: hidden;margin: 0px auto 0px auto;position:relative;background:url(image3/bloque3.jpg);background-size: cover;height: 100%;}
+#parallax {position: relative;padding-top: 80px;overflow: hidden;width: 100%;height: 600px;}
+.footer {width: 960px;overflow: hidden;margin: 0px auto 0px auto;position: absolute;top: 650px;left:300px;}
+.headerindex {width:960px;overflow:hidden;margin:0px auto ;position: absolute;top: 10px;left:10px;height:100px;z-index:10;}
+.menuHome {padding:0px;float:left;margin:50px 0px 0px 100px;list-style: none;font-size:40px; background:-webkit-linear-gradient(-30deg,rgba(255,255,0,0) 100px,rgba(255,255,0,1) 180px,rgba(255,255,0,1) 240px,rgba(255,255,0,0) 300px) -300px 0 no-repeat; -webkit-background-clip:text;}
+.menu li, .menuHome li {float:left;padding-right:20px;}
+.menu li a, .menuHome li a {line-height:27px;font-weight:bold;color:rgba(255,255,255,0.3);}
+.menu li a:hover,.menuHome li a:hover {color:#FF3;}
+</style>
+<script type="text/javascript" src="js/jquery.1.2.6.js"></script>
+<script type="text/javascript" src="js/jquery.jparallax.js"></script>
+<script src="js/move.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#parallax').jparallax(
+		{triggerExposesEdges: true,xtravel:0.3,yparallax:true},
+		{xtravel:0.1,yparallax:false},
+		{xtravel:0.5,yparallax:false},
+		{xtravel:0.5,yparallax:false},
+		{xtravel:0.6,yparallax:false});
+	});
+</script>
+<script>
+
+	var oTimer=null;
+	var iLeft=-300;
+	
+	function toMove()
+	{ clearInterval(oTimer);
+		oTimer=setInterval(function(){
+			iLeft+=10;
+			if(iLeft==1000)
+			{
+				iLeft=-300;
+				
+			}
+			 $(".menuHome").get(0).style.backgroundPosition=iLeft+"px 0px";
+				
+		},20);
+	}
+	toMove();
+	 $(".menuHome").hover(function (){
+		 clearInterval(oTimer);
+		 },function (){
+			 	toMove();
+			 })
+
+
+</script>
+</head>
+
+<body>
+<div id="skelet">
+	<div class="headerindex">
+    	<ul class="menuHome">
+        	<li><a href="1.html" >美丽的照片</a></li>
+            <li><a href="2.html">关于海洋</a></li>
+            <!--<li><a href="#dialog">CONTACT</a></li>-->
+        </ul>
+    </div>
+
+    <!-- middle -->
+    <div style="overflow: hidden; width: 1290px; margin: 0px auto; ">
+    
+    	<div id="parallax" class="clear">
+        	 <div style="width: 750px; height: 129px; position: absolute;top:0px; left:10px;">
+               
+            <img src="image3/capa9c.png" width="770" height="766" style="position:absolute;left:80px;"/> </div>
+        	<div style="width: 1137px; height: 800px; position: absolute;top:168px; left:20px;">
+            	<img src="image3/capa3c.png" width="483" height="225" style="position:absolute;left:200px;top:250px"/> 
+         
+            </div>
+            <div style="width: 1020px; position: absolute;top:80px; left:20px;">
+              
+                <img src="image3/capa3d.png" width="483" height="225" style="position:absolute;left:600px;"/> 
+          </div>
+            
+            <div style="width: 900px; height: 470px; position: absolute; top:80px; left:20px; ">
+               
+            <img src="image3/capa9b.png" width="469" height="317" style="position:absolute;left:-50px;top:100px;" /> </div>
+           
+        </div>
+    </div>
+    <!-- end middle -->
+   	<div class="footer">
+		<!-- <p>欢迎观看杨晶晶的作品，其中用到了CSS3所以一些效果在IE下可能呈现不出来</p> -->
+    </div>
+</div>
+
+</body>
+</html>
+

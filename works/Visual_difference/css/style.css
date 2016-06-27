@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+a,img {
+	border: 0;
+}
+
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	background: #eeeeee;
+	font-size: 12px;
+	margin: 0 auto;
+	background: url(../images2/BG1.jpg) no-repeat;
+	background-size: cover;
+}
+
+h1 {
+	position: absolute;
+	top: 20px;
+	left: 40%;
+	text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 80px;
+	font-weight: bold;
+	color: white
+}
+/* featured-area */
+#featured {
+	height: 337px;
+	width: 950px;
+	margin: 200px auto 0;
+}
+
+.roundabout-holder {
+	list-style: none;
+	width: 500px;
+	height: 300px;
+	margin: 0px auto;
+}
+/* 相当于ul*/
+.roundabout-moveable-item {
+	font-size: 12px!important;
+	height: 400px;
+	width: 600px;
+	cursor: pointer;
+	padding: 5px;
+	border: 1px solid #aaaaaa;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	background: #f9f9f9;
+}
+/* 相当于li*/
+.roundabout-moveable-item img {
+	height: 100%;
+	width: 100%;
+	background-color: #FFFFFF;
+	margin: 0;
+}
+
+.roundabout-in-focus {
+	cursor: auto;
+}
+
+.roundabout-in-focus:hover {
+	-webkit-box-shadow: 0px 0px 20px #787878;
+	-moz-box-shadow: 0px 0px 20px #787878;
+	background: #f9f9f9;
+}
+
+.roundabout-holder span {
+	display: none;
+}
+
+.roundabout-in-focus:hover span {
+	display: inline;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	padding: 8px 20px;
+	background: #f9f9f9;
+	color: #3366cc;
+	z-index: 999;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-radius-topLeft: 5px;
+	border-left: 1px solid #aaaaaa;
+	border-top: 1px solid #aaaaaa;
+}
+
+.roundabout a:active, .roundabout a:focus, .roundabout a:visited {
+	outline: none;
+	text-decoration: none;
+}
+
+.roundabout li {
+	margin: 0
+}

@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="text.css" rel="stylesheet" />
+	<script src="move.js"></script>
+</head>
+
+<body>
+<body>
+<div>
+  1，主要运用了递归，二维数组，元素的自动生成。其他都是一些CSS样式。<br />
+  2，运用数组的思想把16个格子的坐标存入4*4的二维数组，随机数随机产生2或4并显示.<br />
+  3，横向，纵向的移动合并，运用递归思想把数组的每一排（列）数字全部移动到一侧并合并，显示最终结果。<br />
+  4，如果没有移动不产生随机数。<br />
+  5.用变量记录有数字的格子的数量，用来判断游戏的结束，<br />
+  6.上下左右键控制数字的移动。点击开始游戏，进入游戏。<br />
+</div>
+	<div id="box1">
+    	<h2>2048</h2>
+        <input type="button" value="开始游戏"/>
+        <p>得分:<span>0</span></p>
+    </div>
+	 <div id="box">
+        <div class="row">
+          <div class="cell" id="d0"></div>
+          <div class="cell" id="d1"></div>
+          <div class="cell" id="d2"></div>
+          <div class="cell" id="d3"></div>
+        </div>
+        <div class="row">
+         <div class="cell" id="d4"></div>
+          <div class="cell" id="d5"></div>
+          <div class="cell" id="d6"></div>
+          <div class="cell" id="d7"></div>
+        </div>
+        <div class="row">
+          <div class="cell" id="d8"></div>
+          <div class="cell" id="d9"></div>
+          <div class="cell" id="d10"></div>
+          <div class="cell" id="d11"></div>
+        </div>
+        <div class="row">
+          <div class="cell" id="d12"></div>
+          <div class="cell" id="d13"></div>
+          <div class="cell" id="d14"></div>
+          <div class="cell" id="d15"></div>
+        </div>
+      </div>
+      
+</body>
+</body>
+</html>
+<script>
+var BOX=document.getElementById('box1');
+var oInput=document.getElementsByTagName('input')[0];
+var oSpan=document.getElementsByTagName('span')[0];
+var sign=0;/* 能否左右移动的标致 */
+var full=0;/* 检测16个格子*/
+var maxnum=0;/* 得分 */
+var bian=0;
+var a = new Array();
+   /*显示代码*/
+    function display_div ()
+    {
+      var i,j;
+      var n = "d";/*id名*/
+      for (i = 0 ;i < 4 ;i++)
+      {
+        for(j=0;j<4;j++)
+        {
+          if (a[i][j] !=0){ 
+			document.getElementById(n+(i*4+j)).innerHTML="<div class='tile tile"+a[i][j]+"'><div class='tile-inner'>"+a[i][j]+"</div></div>";
+				
+		  }else
+           document.getElementById(n+(i*4+j)).innerHTML="";
+        }
+      }
+    }
+	
+   /*往左侧移动数字的代码，从左往右开始判断*/
+	 function left(t,i)
+    { 
+      var j;
+      var len = t[i].length;
+      for (j=0;j<len-1;j++)
+        {
+          if (t[i][j] == 0 && t[i][j+1] != 0)
+          {	
+		  	if(!sign){sign=1;}
+			    
+            temp = t[i][j];
+            t[i][j] = t[i][j+1];
+            t[i][j+1] = temp;
+            left(t,i);
+		
+          }
+      		
+		}
+        
+    }
+
+    function right(t,i)
+    {
+      var len = t[i].length;
+	 
+      for (var j=len-1;j>0;j--)
+        {
+          if (t[i][j] == 0 && t[i][j-1] != 0)
+          {
+			if(!sign){sign=1;}
+            temp = t[i][j];
+            t[i][j] = t[i][j-1];
+            t[i][j-1] = temp;
+            right(t,i);
+       
+          }
+	
+        }      
+    }
+	
+	  function up(t,j)
+    {
+      var len = t.length;
+      
+      for (var i=0;i<len-1;i++)
+       {
+          if (t[i][j] == 0 && t[i+1][j] != 0)
+          {
+			 if(!sign){sign=1;}
+            temp = t[i][j];
+            t[i][j] = t[i+1][j];
+            t[i+1][j] = temp;
+            up(t,j);
+      
+          }
+	
+        }
+    }
+	
+	 function down(t,j)
+    {
+      var len = t.length;
+      
+      for (var i=len-1;i>0;i--)
+       {
+          if (t[i][j] == 0 && t[i-1][j] != 0)
+          {
+            if(!sign){sign=1;}
+			temp = t[i][j];
+            t[i][j] = t[i-1][j];
+            t[i-1][j] = temp;
+            down(t,j);
+        
+          }
+	
+        }
+    }
+    /*左侧合并代码*/
+    function lcombine(a ,i)
+    {
+      var len = a[i].length;
+      
+      for(var j=0;j<len-1;j++)
+      {
+        if (a[i][j] == a[i][j+1])
+        {
+          a[i][j] *=2;
+          a[i][j+1] = 0;
+          left(a,i);
+         break; 
+        }
+      }
+    }
+      /*右侧合并代码*/
+   function rcombine(a ,i)
+    {
+      var len = a[i].length;
+      
+      for(var j=len-1;j>0;j--)
+      {
+        if (a[i][j] == a[i][j-1])
+        {
+          a[i][j] *=2;
+          a[i][j-1] = 0;
+          right(a,i);
+          break;
+        }
+      }
+    }
+	
+	 function ucombine(a ,j)
+    {
+      var len=a.length;
+      
+      for (var i=0;i<len-1;i++)
+        {
+          if (a[i][j]==a[i+1][j])
+            {
+              a[i][j] *=2;
+              a[i+1][j] = 0;
+              up(a,j);
+              break;
+            }
+          
+        }
+      
+    }
+    
+   function dcombine(a ,j)
+    {
+      var len=a.length;
+      
+      for (var i=len-1;i>0;i--)
+        {
+          if (a[i][j]==a[i-1][j])
+            {
+					
+              a[i][j] *=2;
+              a[i-1][j] = 0;
+              down(a,j);
+              break;
+            }
+          
+        }
+      
+    }
+	
+	function addnew(){
+      while (1){/* 随机的位置上产生一个随机的2 或4  */
+       pos = Math.floor(Math.random() * 16); /*i纵坐标 j横坐标*/
+       var i = Math.floor(pos/4); 
+       var j = Math.floor(pos%4);
+       
+       if (a[i][j] == 0) 
+         {
+           a[i][j] = Math.ceil(Math.random()*4)<4? 2:4;
+           break;
+           
+         }
+      }
+    }
+	function gameover(){
+	 for(var i=0;i<4;i++){
+			for(var j=0;j<4;j++){
+				if(a[i][j]!=0){
+					full++;
+				}
+				if(full==16){
+					for(var x=0;x<4;x++){
+						for(var y=0;y<3;y++){
+							if(a[x][y]==a[x][y+1]||a[y][x]==a[y+1][x])
+							{return;}
+						}
+					}
+					alert('游戏结束')
+					oInput.value='再玩一次'
+				}	
+			}	
+		}	
+	}
+	function int (){
+	 /*产生4*4=0的新数组 数组重置*/ 
+	  for (var i = 0 ;i < 4 ; i++)
+	  {    
+		a.push([]);
+		for (var j = 0 ; j < 4 ; j ++)
+		{ a[i].push(0);	
+	   }
+	  }
+		console.log(a)
+	 addnew();/* 之后产生一个新的·随机值 */
+     display_div();/* 数组中的值显示出来 */	
+	}
+	oInput.onclick=function (){
+		a = new Array();
+		oInput.value='游戏进行中'
+		int();
+	};
+	
+    document.onkeyup=function(ev){
+		sign=0;
+		full=0;
+		var ev=ev||event;
+
+       if (ev.keyCode==37)/* 判断键值 左 上 右 下  */
+         {
+               for (var i=0;i<4;i++)/* 四横排的左移 */
+                 {
+				 	left(a,i);
+      				lcombine(a,i);/* 先移动 后 四横排的合并 */
+				 }
+         }
+      
+       if (ev.keyCode==38)
+         {
+               for (var j=0;j<4;j++)
+               {
+				    up(a,j);
+                    ucombine(a,j);
+				}
+         }
+      
+        if (ev.keyCode==39)
+         {
+               for (var i=0;i<4;i++)
+                {  
+					right(a,i);
+                    rcombine(a,i);
+				}
+         }
+      
+      if (ev.keyCode==40)
+         {
+               for (var j=0;j<4;j++)
+                {    down(a,j);
+                    dcombine(a,j);
+					
+				}
+         }
+		if(sign){/* 如果有一个方向可以移动 */	
+               addnew();/* 之后产生一个新的·随机值 */
+			for(var i=0;i<4;i++){
+				for(var j=0;j<4;j++){
+				   if(a[i][j]==2048){
+					    display_div();
+						alert('你赢了')
+						return;
+					}
+				}
+			}
+		}
+        display_div();/* 数组中的值显示出来 */	
+		
+		
+		  
+		
+		for(var i=0;i<4;i++){
+			for(var j=0;j<4;j++){
+			  if(maxnum<=a[i][j]){
+				 maxnum=a[i][j];
+			   }
+			}
+		}
+		oSpan.innerHTML=maxnum;
+      	if(sign==0){
+			gameover();
+		}
+    };
+
+
+
+
+</script>

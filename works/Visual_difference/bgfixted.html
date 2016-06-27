@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>视差滚动</title>
+<script src="js/move.js"></script>
+<style>
+*{padding:0;margin:0}
+li{list-style:none;}
+body{text-align:center;background-attachment:fixed;}
+img{vertical-align:top;}
+#main{overflow:hidden;}
+.header{position:relative;}
+.bg-attachment{background:url(image3/bloque7.jpg) center center no-repeat;
+background-attachment:fixed;position:relative;}
+.div3{background:url(image3/bloque3.jpg) center center no-repeat;
+background-attachment:fixed;}
+.bg-attachment .shadow{height:800px;overflow:hidden;position:relative}
+
+.div2{background:url(image3/bloque5.jpg) center center no-repeat;background-attachment:fixed;}
+p{position:absolute;font-size:30px;font-family:Verdana, Geneva, sans-serif;width:300px;left:80%;top:200px;font-weight:bold;opacity:0;filter:alpha(opacity=0);background: transparent;color:white; text-shadow:0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;}
+.c{position:absolute;}
+.c1{right:-500px;top:200px;}
+.c2{left:-500px;top:300px;}
+.c3{right:-500px;top:0px;}
+.p1{opacity:1;filter:alpha(opacity=100);top:100px;left:200px;font-weight:bold;border:none;color:white;  text-shadow:0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;}
+.p2{top:180px;left:800px;}
+.p3{color:#000;top:180px;left:0px;color:#FF0}
+.p4{top:400px;top:180px;left:0px;}
+.p5{color:yellow;top:180px;left:800px;}
+.p6{left:0px;top:180px;left:0px;}
+</style>
+</head>
+<body>
+    <ul id="main">
+        <li class="header">
+          <img src="image3/header1.jpg" width="100%"  />
+          <p class="p1">广阔的海洋，从蔚蓝到碧绿，美丽而又壮观。海洋不仅仅是美丽的风景，它还是人类未来的希望。</p>
+        </li>
+      <li class="bg-attachment div">
+            <div class="shadow"><p class="p2">一切是多么美好，它们都是共筑海洋的一份子，也是建设和平家园的一员，少了它们其中的一个，海洋就不会这么灿烂了。同时，海洋也是一个巨大的“蓝色药库”、“蓝色牧场”。它的色彩、它的神秘无时无刻不在吸引着我们去探索</p>
+            </div>
+        </li>
+       <li class="header">
+       	  <img src="image3/placa.jpg"/>
+         
+          <p class="p3">但是，海洋也不一定是永远温柔的，如果人们疯狂地向海洋索取，海洋也会露出凶狠的一面。到那时，人们后悔都来不急，受难的永远都是我们自己。所以，我们应该爱护海洋，保护海洋！</p>
+        </li>
+        <li class="bg-attachment div2 ">
+            <div class="shadow">
+                <p class="p4">　自古以来就有靠山吃山、靠海吃海之说，大海有丰富的宝藏，这些宝藏取之不尽，用之不竭，人们能从海洋里获得无数物质财富
+                </p>
+                <img class="c1 c" src="image3/capa3c.png" width="483" height="225" />
+            </div>
+            
+        </li>
+      <li class="header">
+          <img src="image3/placa3.jpg" >
+          <p class="p5">大海像一首诗，灵动跳跃；像一幅画，意蕴丰富；又像一支交响乐，浩瀚澎湃……它时而平静，犹如一面明镜；时而暴怒，涌起万丈狂澜，能掀翻航行着的小船。
+          </p>
+      </li>
+      <li class="bg-attachment div3">
+            <div class="shadow">
+              <p class="p6">海洋里生活着各种各样的生物，蕴含着丰富的宝藏，有着神秘的色彩和未知的奥秘。海洋是一个庞大的家族，在这个家族里，居住着许许多多、形态各异的“居民”</p>
+                <img class="c2 c" src="image3/capa9b.png" width="469" height="317" />
+            	<img class="c3 c" src="image3/capa9c.png" width="770" height="766" />
+                </div>
+            
+      </li>
+</ul>
+</body>
+</html>
+<script>
+
+
+	var oMain = document.getElementById('main');
+	var Ap=oMain.getElementsByTagName('p');
+	var C1=getByClass('c1',oMain )
+	var C2=getByClass('c2',oMain )
+	var C3=getByClass('c3',oMain )
+	var p1=getByClass('p1',oMain )
+	var p3=getByClass('p2',oMain )
+	var p1=getByClass('p3',oMain )
+	var p3=getByClass('p4',oMain )
+		fish ();
+		fish2 ();
+		fish3 ();
+		function fish (){
+					doMove(C1[0], {
+							right:view().w+500,
+						}, 20000, 'linear',function (){
+						C1[0].style.right=-500+'px';
+						fish();		
+					});
+			}
+		function fish2 (){
+					doMove(C2[0], {
+							left:view().w+500,
+						}, 20000, 'linear',function (){
+						C2[0].style.left=-500+'px';
+						fish2();		
+					});
+			}
+		function fish3 (){
+					doMove(C3[0], {
+							right:view().w+500,
+						}, 15000, 'linear',function (){
+						C3[0].style.right=-800+'px';
+						fish3();		
+					});
+			}
+	
+	
+
+	shake(Ap[0], 'top')
+			
+			var aLi = oMain.getElementsByTagName('li');
+			
+			abc();
+			
+			window.onscroll = window.onresize =abc;
+			
+			function  abc() {
+			
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				
+				for (var i=1; i<aLi.length; i++) {
+					var aP = aLi[i].getElementsByTagName('p')[0];
+					//var aSrong = aLi[i].getElementsByTagName('strong')[0];
+					if ( getTop(aLi[i]) < scrollTop + document.documentElement.clientHeight/2 && !aLi[i].isload ) {			
+						aLi[i].isload = 1;
+						doMove(aP, {
+							opacity : 100
+						}, 500, 'linear',function (){
+						
+							doMove(this, {
+							left: (view().w-aP.offsetWidth)/2,
+							
+						}, 3000, 'backOut')
+						});
+					
+	
+					}
+					
+					 if ( getTop(aLi[i]) >scrollTop && aLi[i].isload==1 ) {
+				
+						aLi[i].isload=0;
+						doMove(aP, {
+							left: 0
+						}, 3000, 'backOut',function (){
+						
+							doMove(this, {
+							
+							opacity : 0
+						}, 500, 'linear')
+						});
+				
+					}
+					
+				}
+				
+			}
+			
+			function getTop(obj) {
+				var iTop = 0;
+				while(obj) {
+					iTop += obj.offsetTop;
+					obj = obj.offsetParent;
+				}
+				return iTop;
+			}
+			
+
+
+			
+	function getByClass(sClass,parent){
+	
+	var aEles = (parent||document).getElementsByTagName('*');
+	var arr = [];
+	
+	for(var i=0; i<aEles.length; i++){
+		
+		var aClass = aEles[i].className.split(' ');
+	
+		for(var j=0; j<aClass.length; j++){
+			
+			if( aClass[j] == sClass ){
+			
+				arr.push( aEles[i] );	
+				break;
+				
+			}
+			
+		}
+		
+	}
+	
+	return arr;
+	
+}	
+function shake(obj, attr, endFn) {
+	var arr = [];
+	var num = 0;
+	var pos = parseInt(getStyle(obj, attr));	
+	// 这个值每次进来都会改变，必须限制只能存一次，否则会脱离原来的轨迹
+	
+	if(!obj.pos){ //限制只能存一次。
+		obj.pos = pos;
+	}
+	
+	for ( var i=20; i>0; i-=2 ) {
+		arr.push(i, -i);
+	}
+	arr.push(0);
+	clearInterval( obj.shake );
+	obj.shake = setInterval(function() {
+		obj.style[attr] = obj.pos + arr[num] + 'px';
+		num ++;
+		if ( num == arr.length ) {
+			num = 0;
+			//clearInterval( obj.shake );
+			endFn && endFn();
+		}
+	}, 300);
+}
+
+function getStyle( obj, attr ) { 
+	return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj, false)[attr];
+}
+
+</script>

@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+/* reset.css */
+body, h1, h2, h3, h4, h5, h6, p, dl, dd, ol, ul, form,th, td ,input,textarea,select{ margin: 0; padding: 0;border: 0;outline: 0;font-size: 12px;font-family:"宋体";} 
+a{text-decoration:none;}
+img{border:none;vertical-align: top;}
+li{ list-style: none;vertical-align:top;}  
+table { border-collapse: collapse; border-spacing: 0;}
+.clear{zoom:1;}
+.clear:after{content:"";clear:both;display:block;} 
+/* end reset.css */
+
+/* public.css */
+
+/* end public.css */
+body{margin:100px auto;min-width:990px;}
+ul,input{padding:0;margin:0px;font-size:12px;}
+a{text-decoration:none;}
+li{list-style:none;}
+.wrap{width:650px;height:132px;padding:16px 16px 29px 13px;background:#fff;margin:0 auto;}
+.clear{zoom:1;}
+.clear:after{content:"";display:block;clear:both;}
+.head li{float:left;margin-right:4px;display:inline;}
+.head a{float:left;color:#0063d3;margin-bottom:-1px;position:relative; border-bottom:1px solid #d0d0d0;}
+.head span{float:left;}
+.head strong{float:left;line-height:24px;height:24px; padding:0 12px;font-weight:normal;}
+.head a:hover,.head a:hover span,.head a:hover strong,.content .div1,.content .div2,.content .div3,.head a:active,.head a:active span,.head a:active strong{background:url(img/2.gif) no-repeat;}
+.head a:hover{background-position:0 -96px;background-repeat:repeat-x;color:#fd6900;}
+.head a:hover span{background-position:0 -72px;}
+.head a:hover strong{background-position:right -120px;text-decoration:underline;height:24px;}
+.head a:active{color:#3d3d3d;background-position:0 -24px;background-repeat:repeat-x;border-bottom-color:#eef0ef;}
+.head a:active span{background-position:0 0;}
+.head a:active strong{background-position:right -48px;font-weight:bold;height:24px;text-decoration:none;}
+.content .div1{background-position:0 -182px;background-repeat:repeat-x;width:572px;float:left;}
+.content .div2{background-position:0 -144px;height:38px;float:left;}
+.content .div3{background-position:right -220px;height:38px;width:572px;float:left;}
+.content .inp1{height:28px;width:432px;border:none;background:none;float:left;margin:5px 0 5px 5px;border-right:1px solid #edcc7d;}
+.content .inp2{height:32px;width:130px;background:url(img/1.png) 0 0;float:left;margin:3px 3px 3px 0;border:none;}
+.content .div4{float:left;padding:4px 0 4px 11px;width:50px;line-height:15px;}
+.content .div4 a{color:#3e3e3e;}
+.foot{width:631px;background:url(img/7.png) no-repeat 0 24px;padding-left:15px;}
+.foot li,.foot a{float:left;line-height:25px;padding-right:10px;color:#676767;}
+.foot .a2{color:#999da6;}
+.foot a:hover{color:#ff6100;}
+
+#Pictabbox {width: 500px;height:300px;border: 3px solid #fff;position:relative; margin: 0 auto ;overflow:hidden;}
+#Pictabbox img {width: 500px;height:300px;}
+#Pictabbox .pic {position:absolute;left: 0;top:0;width: 500px;height:300px;overflow:hidden;}
+#Pictabbox ul {width: 1000px;height: 300px;position: absolute;left: 0; top: 0;}
+#Pictabbox ul li{float:left;width:500px;height:300px; list-style: none; }
+
+#Pictabbox .txt {position: absolute;left: 0px; bottom: 0px;width: 500px; height: 80px; z-index: 10;}
+#Pictabbox .bg {width: 500px; height: 80px; background:#000;position: absolute; left: 0;bottom:0;opacity:0.6;}
+
+#Pictabbox dl {position:absolute; z-index: 11;color:#fff; padding: 0px 10px;}
+#Pictabbox dl dt {font-size:20px;font-weight: bold; padding: 10px 0;}
+#Pictabbox dl dd {font-size: 12px;text-indent: 2em;}

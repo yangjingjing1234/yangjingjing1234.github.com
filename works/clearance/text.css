@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin:0;background:#000;}
+p{margin:0;padding:0;}
+#wrap{ margin:50px auto 0;width: 342px;/*width: 500px;*/border: 5px solid #333;background:#becde0;}
+.cont{
+	width: 300px;
+	padding:20px;
+	margin:20px auto 0;
+	background:#becde0;
+}
+#box {height:342px;/*height:500px;*/background:#e3ece9;}
+
+#box div { width: 37px; height: 37px; float:left;border: 1px solid #000; border-width: 0px 1px 1px 0px;position:relative;font-size:30px;color:#00C;font-weight:900;line-height:30px;text-align:center;}
+#box div.bomb,#box .titleP,#box .flag { background:url(img/saolei.gif) no-repeat; }
+#box div.bomb { background-position:-37px 0; }
+#box p{padding:0;margin:0;position:absolute;width: 37px; height:37px;}
+#box .titleP{background-position:0 0;}
+#box .flag{background-position:-74px 0; }
+
+#side{height:60px; border-top: 5px solid #333;}
+#side img{width:64px; height:64px;}
+#side .img1,#side .span1{float:left;}
+#side .img2,#side .span2{float:right;}
+#side span{width:100px;height:50px;background:#3761ab;line-height:50px;color:#fff;font-weight:900;text-align:center;font-size:50px;border:2px solid #000;}
+#game{line-height:20px; border-bottom: 5px solid #333;line-height:20px;color:#fff;text-align:center;padding:0;margin:0;}
+#wenzi{width:300px;height:200px;border:10px solid #ccc;position:absolute;background:#fff;left:0px;top:100px;text-align:center;line-height:200px;font-weight:bold;display:none;}
+#wenzi span{width:50px;height:30px;position:absolute;background:#FF0;top:0px;right:0px;font-weight:bold;text-align:center;line-height:30px;}
+strong{margin:0 10px;cursor:pointer;}
+.active{background:#000; color:#ccc;}
+.title1{color:#4050be;}
+.title2{color:#196700;}
+.title3{color:#a70502;}
+.title4{color:#00F;}
+.title5{color:#830000}
+.title6,.title7,.title8,.title9{color:red;}
