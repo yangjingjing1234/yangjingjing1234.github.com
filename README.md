@@ -25,7 +25,7 @@ https://yangjingjing1234.github.io/works/Visual_difference/index.html
 #
 http://www.yac.mx/ 
 #
-http://www.elex.com/ 
+http://www.elex-tech.com/
 #
 http://taotaole.tw/ 
 #
