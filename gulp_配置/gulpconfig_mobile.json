@@ -1,0 +1,36 @@
+{
+  "path": {
+    "rootPath": "E:/work/git/yungou/webapps/www/views/src/",
+
+    "compilePath": "E:/work/git/yungou/framework/mobile/active3c/build/",
+    "compileRevPath": "E:/work/git/yungou/framework/mobile/active3c/build/rev/",
+    "compileJsPath": "E:/work/git/yungou/framework/mobile/active3c/build/js/",
+    "compileHtmlPath": "E:/work/git/yungou/framework/mobile/active3c/build/view/",
+
+    "sourceImagePath": "E:/work/git/yungou/framework/mobile/active3c/images/",
+    "sourceJsPath": "E:/work/git/yungou/framework/mobile/active3c/js/",
+    "sourceCssPath": "E:/work/git/yungou/framework/mobile/active3c/css/",
+    "sourceFontPath": "E:/work/git/yungou/framework/mobile/active3c/font/",
+    "sourceHtmlPath": "E:/work/git/yungou/webapps/www/views/src/activities/",
+
+    "distJsPath": "E:/work/git/yungou/web/mobile/active3c/js/",
+    "distCssPath": "E:/work/git/yungou/web/mobile/active3c/css/",
+    "distImagePath": "E:/work/git/yungou/web/mobile/active3c/images/",
+    "distFontPath": "E:/work/git/yungou/web/mobile/active3c/font/",
+    "distRootPath": "E:/work/git/yungou/web/mobile/active3c/"
+  },
+  "i18n": {
+    "bingo18": {
+      "image": []
+    },
+    "unicoin": {
+      "image": []
+    },
+    "taotaole": {
+      "image": []
+    }
+  },
+  "server": {
+    "port": 8080
+  }
+}

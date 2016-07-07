@@ -1,0 +1,25 @@
+{
+  "path": {
+    "rootPath": "E:/work/git/yungou/webapps/www/views/src/",
+
+    "compilePath": "E:/work/git/yungou/framework/mobile/activenew/build/",
+    "compileRevPath": "E:/work/git/yungou/framework/mobile/activenew/build/rev/",
+    "compileJsPath": "E:/work/git/yungou/framework/mobile/activenew/build/js/",
+    "compileHtmlPath": "E:/work/git/yungou/framework/mobile/activenew/build/view/",
+
+    "sourceImagePath": "E:/work/git/yungou/framework/mobile/activenew/images/",
+    "sourceJsPath": "E:/work/git/yungou/framework/mobile/activenew/js/",
+    "sourceCssPath": "E:/work/git/yungou/framework/mobile/activenew/css/",
+    "sourceFontPath": "E:/work/git/yungou/framework/mobile/activenew/font/",
+    "sourceHtmlPath": "E:/work/git/yungou/webapps/www/views/src/activities/",
+
+    "distJsPath": "E:/work/git/yungou/web/mobile/activenew/js/",
+    "distCssPath": "E:/work/git/yungou/web/mobile/activenew/css/",
+    "distImagePath": "E:/work/git/yungou/web/mobile/activenew/images/",
+    "distFontPath": "E:/work/git/yungou/web/mobile/activenew/font/",
+    "distRootPath": "E:/work/git/yungou/web/mobile/activenew/"
+  },
+  "server": {
+    "port": 8080
+  }
+}

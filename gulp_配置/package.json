@@ -1,0 +1,69 @@
+{
+  "name": "gulp",
+  "version": "1.0.1",
+  "description": "gulp for react es6",
+  "main": "gulpfile.js",
+  "scripts": {
+    "build": "gulp build",
+    "dev":"gulp"
+  },
+  "author": "Marylin.Meng",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/menglingbujie/gulp.git"
+  },
+  "keywords": [
+    "gulp",
+    "es6",
+    "react"
+  ],
+  "bugs": {
+    "url": "https://github.com/menglingbujie/gulp/issues"
+  },
+  "homepage": "https://github.com/menglingbujie/gulp#readme",
+  "dependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "browser-sync": "*",
+    "expose-loader": "^0.7.1",
+    "gulp": "*",
+    "gulp-babel": "*",
+    "gulp-changed": "^1.3.0",
+    "gulp-clean": "*",
+    "gulp-clean-css": "*",
+    "gulp-concat": "^2.6.0",
+    "gulp-fontmin": "*",
+    "gulp-if": "^2.0.1",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-less": "*",
+    "gulp-notify": "*",
+    "gulp-plumber": "*",
+    "gulp-postcss": "*",
+    "gulp-rename": "*",
+    "gulp-tinypng": "*",
+    "gulp-uglify": "*",
+    "gulp-webpack": "^1.5.0",
+    "jquery": "^2.2.4",
+    "postcss-px2rem": "*",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.4.1",
+    "redux": "^3.5.2",
+    "run-sequence": "*",
+    "webpack": "^1.13.0",
+    "webpack-stream": "^3.2.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "less-loader": "^2.2.3",
+    "babel-core": "^6.7.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-stage-1": "^6.5.0",
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.1"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  }
+}

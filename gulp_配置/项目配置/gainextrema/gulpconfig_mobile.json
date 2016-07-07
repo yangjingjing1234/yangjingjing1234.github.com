@@ -1,0 +1,36 @@
+{
+  "path": {
+    "rootPath": "E:/work/git/gainextreme/frontend/views/",
+
+    "compilePath": "E:/work/git/gainextreme/frontend/webapp/mobile/build/",
+    "compileRevPath": "E:/work/git/gainextreme/frontend/webapp/mobile/build/rev/",
+    "compileJsPath": "E:/work/git/gainextreme/frontend/webapp/mobile/build/js/",
+    "compileHtmlPath": "E:/work/git/gainextreme/frontend/webapp/mobile/build/view/",
+
+    "sourceImagePath": "E:/work/git/gainextreme/frontend/webapp/mobile/images/",
+    "sourceJsPath": "E:/work/git/gainextreme/frontend/webapp/mobile/js/",
+    "sourceCssPath": "E:/work/git/gainextreme/frontend/webapp/mobile/css/",
+    "sourceFontPath": "E:/work/git/gainextreme/frontend/webapp/mobile/font/",
+    "sourceHtmlPath": "E:/work/git/gainextreme/frontend/views/recharge/mobile/",
+
+    "distJsPath": "E:/work/git/gainextreme/frontend/web/mobile/js/",
+    "distCssPath": "E:/work/git/gainextreme/frontend/web/mobile/css/",
+    "distImagePath": "E:/work/git/gainextreme/frontend/web/mobile/images/",
+    "distFontPath": "E:/work/git/gainextreme/frontend/web/mobile/font/",
+    "distRootPath": "E:/work/git/gainextreme/frontend/web/mobile/"
+  },
+  "i18n": {
+    "bingo18": {
+      "image": []
+    },
+    "unicoin": {
+      "image": []
+    },
+    "taotaole": {
+      "image": []
+    }
+  },
+  "server": {
+    "port": 8080
+  }
+}

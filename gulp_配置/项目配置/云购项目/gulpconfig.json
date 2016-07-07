@@ -1,0 +1,26 @@
+{
+  "path": {
+    "rootPath": "E:/work/git/yungou/webapps/www/views/src/",
+
+    "compilePath": "E:/work/git/yungou/framework/website/taotaole/build/",
+    "compileRevPath": "E:/work/git/yungou/framework/website/taotaole/build/rev/",
+    "compileJsPath": "E:/work/git/yungou/framework/website/taotaole/build/js/",
+    "compileHtmlPath": "E:/work/git/yungou/framework/website/taotaole/build/view/",
+
+    "sourceImagePath": "E:/work/git/yungou/framework/website/taotaole/images/",
+    "sourceJsPath": "E:/work/git/yungou/framework/website/taotaole/js/",
+    "sourceCssPath": "E:/work/git/yungou/framework/website/taotaole/css/",
+    "sourceFontPath": "E:/work/git/yungou/framework/website/taotaole/font/",
+    "sourceHtmlPath": "E:/work/git/yungou/webapps/www/views/src/member/",
+
+    "distJsPath": "E:/work/git/yungou/web/website/taotaole/js/",
+    "distCssPath": "E:/work/git/yungou/web/website/taotaole/css/",
+    "distImagePath": "E:/work/git/yungou/web/website/taotaole/images/",
+    "distFontPath": "E:/work/git/yungou/web/website/taotaole/font/",
+    "distRootPath": "E:/work/git/yungou/web/website/taotaole/"
+  },
+
+  "server": {
+    "port": 8080
+  }
+}

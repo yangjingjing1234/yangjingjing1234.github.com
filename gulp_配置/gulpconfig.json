@@ -1,0 +1,47 @@
+{
+  "path": {
+<<<<<<< Updated upstream
+    "rootPath": "E:/work/reactTest/",
+
+    "compilePath": "E:/work/reactTest/build/",
+    "compileRevPath": "E:/work/reactTest/build/rev/",
+    "compileJsPath": "E:/work/reactTest/build/js/",
+    "compileHtmlPath": "E:/work/reactTest/build/view/",
+
+    "sourceImagePath": "E:/work/reactTest/images/",
+    "sourceJsPath": "E:/work/reactTest/js/",
+    "sourceCssPath": "E:/work/reactTest/css/",
+    "sourceFontPath": "E:/work/reactTest/font/",
+    "sourceHtmlPath": "E:/work/reactTest/",
+
+    "distJsPath": "E:/work/reactTest/dist/js/",
+    "distCssPath": "E:/work/reactTest/dist/css/",
+    "distImagePath": "E:/work/reactTest/dist/images/",
+    "distFontPath": "E:/work/reactTest/dist/font/",
+    "distRootPath": "E:/work/reactTest/dist/"
+=======
+    "rootPath": "D:/work/ajaxloading/",
+
+    "compilePath": "D:/work/ajaxloading/build/",
+    "compileRevPath": "D:/work/ajaxloading/build/rev/",
+    "compileJsPath": "D:/work/ajaxloading/build/js/",
+    "compileHtmlPath": "D:/work/ajaxloading/build/view/",
+
+    "sourceImagePath": "D:/work/ajaxloading/images/",
+    "sourceJsPath": "D:/work/ajaxloading/js/",
+    "sourceCssPath": "D:/work/ajaxloading/css/",
+    "sourceFontPath": "D:/work/ajaxloading/font/",
+    "sourceHtmlPath": "D:/work/ajaxloading/",
+
+    "distJsPath": "D:/work/ajaxloading/js/",
+    "distCssPath": "D:/work/ajaxloading/css/",
+    "distImagePath": "D:/work/ajaxloading/images/",
+    "distFontPath": "D:/work/ajaxloading/font/",
+    "distRootPath": "D:/work/ajaxloading/"
+>>>>>>> Stashed changes
+  },
+
+  "server": {
+    "port": 8080
+  }
+}
